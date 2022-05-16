@@ -7,20 +7,12 @@ public class PlateTrigger : MonoBehaviour
     [SerializeField] GameEvent _triggerDoors;
     [SerializeField] Animation plateAniamtion;
     HashSet<int> triggersIn = new HashSet<int>();
-    void OnTriggerEnter(Collider other){
-        CheckEnter(other);
-    }
-    void OnTriggerExit(Collider other){
-       CheckExit(other);
-    }
-    void OnCollisionEnter(Collision other){
-        CheckEnter(other.collider);
-    }
-    void OnCollisionExit(Collision other){
-        CheckEnter(other.collider);
-    }
+    void OnTriggerEnter(Collider other) => CheckEnter(other);
+    void OnTriggerExit(Collider other) => CheckExit(other);
+    void OnCollisionEnter(Collision other) => CheckEnter(other.collider);
+    void OnCollisionExit(Collision other) => CheckEnter(other.collider);
     private void CheckEnter(Collider other){
-        if(other.gameObject.tag != "Player" && other.gameObject.tag != "Pushable")
+        if(other.gameObject.tag != "Pushable")
             return;
         _triggerDoors.Invoke();
         triggersIn.Add(other.gameObject.GetHashCode());
@@ -32,8 +24,8 @@ public class PlateTrigger : MonoBehaviour
     private void CheckExit(Collider other){
         triggersIn.Remove(other.gameObject.GetInstanceID());
         if(triggersIn.Count != 0)
-        return;
-        plateAniamtion["PlatePushed"].speed = -1;
+            return;
+        plateAniamtion["PlatePushed"].speed = -1f;
         plateAniamtion.Play();    
     }
 }
