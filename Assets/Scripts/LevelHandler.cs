@@ -7,9 +7,6 @@ public class LevelHandler : MonoBehaviour
 
     [SerializeField] GameEvent levelCompleteEvent;
     [SerializeField] List<GameObject> conditionList = new List<GameObject>();
-    void Start(){
-        
-    }
     public void CheckConditions(){
         foreach(GameObject condition in conditionList)
             if(!condition.GetComponent<LevelCondition>().IsConditionMet)
