@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeverPull : MonoBehaviour
+public class LeverPull : LevelCondition
 {
-    [SerializeField] GameEvent _leverPull;
+    [SerializeField] Animator leverAnimator;
+    [SerializeField] GameEvent leverPullEvent;
+
     private bool isPlayerInRange;
     void OnCollisionEnter(Collision other) => CheckEnter(other.collider);
     void OnCollisionExit(Collision other) => CheckExit(other.collider);
@@ -22,6 +24,20 @@ public class LeverPull : MonoBehaviour
     }
     void Update(){
         if(Input.GetKeyDown(KeyCode.E) && isPlayerInRange)
-            _leverPull?.Invoke();
+            LeverPulled();
+    }
+    void LeverPulled(){
+        if(!isConditionMet){
+            isConditionMet = true;
+            Debug.Log("Pulled");
+            leverPullEvent?.Invoke();
+            leverAnimator.SetFloat("Direction",1.0f);
+            leverAnimator.Play("MoveDown");
+            return;
+        }
+        else{
+            leverAnimator.SetFloat("Direction",-1.0f);
+            leverAnimator.Play("MoveUp");
+        }
     }
 }

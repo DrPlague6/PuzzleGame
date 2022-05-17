@@ -4,12 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameEvent/Base", fileName ="New Game Event")]
 public class GameEvent : ScriptableObject
 {
-   HashSet<GameEventListener> _listeners = new HashSet<GameEventListener>();
+   HashSet<GameEventListener> listeners = new HashSet<GameEventListener>();
         public void Invoke(){
-            foreach(var globalEventListener in _listeners){
+            foreach(var globalEventListener in listeners){
                 globalEventListener.RaiseEvent();
             }
         } 
-        public void Register(GameEventListener gameEventListener) => _listeners.Add(gameEventListener);
-        public void Deregister(GameEventListener gameEventListener) => _listeners.Remove(gameEventListener);
+        public void Register(GameEventListener gameEventListener) => listeners.Add(gameEventListener);
+        public void Deregister(GameEventListener gameEventListener) => listeners.Remove(gameEventListener);
 }

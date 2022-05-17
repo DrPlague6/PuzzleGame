@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlateTrigger : MonoBehaviour
 {
-    [SerializeField] GameEvent _triggerDoors;
+    [SerializeField] GameEvent triggerDoors;
     [SerializeField] Animation plateAniamtion;
     HashSet<int> triggersIn = new HashSet<int>();
     void OnTriggerEnter(Collider other) => CheckEnter(other);
@@ -14,7 +14,7 @@ public class PlateTrigger : MonoBehaviour
     private void CheckEnter(Collider other){
         if(other.gameObject.tag != "Pushable")
             return;
-        _triggerDoors.Invoke();
+        triggerDoors.Invoke();
         triggersIn.Add(other.gameObject.GetHashCode());
         if(triggersIn.Count > 1)
             return;
