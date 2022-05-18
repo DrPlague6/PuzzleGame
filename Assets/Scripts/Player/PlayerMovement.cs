@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] PlayerScript playerScript;
@@ -18,10 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputVerticalAxis = Input.GetAxis("Vertical");
-        inputHorizontalAxis = Input.GetAxis("Horizontal");
-        
-        Vector3 movementDirection = new Vector3(inputHorizontalAxis, 0,inputVerticalAxis);
+        Vector3 movementDirection = new Vector3(playerScript.MovementVector.x, 0,playerScript.MovementVector.y);
         
         if(movementDirection.magnitude <= 0.01f)
             return;

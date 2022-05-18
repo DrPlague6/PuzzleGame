@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MainPlayer
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  turnSmoothingTime: 0.01
+  turnSmoothingTime: 0.1
   strength: 2
