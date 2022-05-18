@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LevelHandler : MonoBehaviour
 {
-
     [SerializeField] GameEvent levelCompleteEvent;
     [SerializeField] List<GameObject> conditionList = new List<GameObject>();
     public void CheckConditions(){

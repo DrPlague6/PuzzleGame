@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] PlayerScript playerScript;
     [SerializeField] CharacterController _characterController;
-    [SerializeField] PlayerObject playerObject;
     public Transform Camera;
     private float inputVerticalAxis;
     private float inputHorizontalAxis;
@@ -27,10 +27,10 @@ public class PlayerMovement : MonoBehaviour
             return;
         
         float targetAngle = Mathf.Atan2(movementDirection.x,movementDirection.z) * Mathf.Rad2Deg + Camera.eulerAngles.y;
-        float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y,targetAngle,ref turnSmoothingVelocity, playerObject.TurnSmoothingTime);
+        float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y,targetAngle,ref turnSmoothingVelocity, playerScript.playerProperties.TurnSmoothingTime);
         transform.rotation = Quaternion.Euler(0f,smoothAngle,0f);
 
         movementDirection = Quaternion.Euler(0f,targetAngle,0f) * Vector3.forward;
-        _characterController.Move(movementDirection.normalized * playerObject.MovementSpeed * Time.deltaTime);
+        _characterController.Move(movementDirection.normalized * playerScript.playerProperties.MovementSpeed * Time.deltaTime);
     }
 }
