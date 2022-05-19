@@ -14,6 +14,7 @@ public class WinTrigger : MonoBehaviour
     void Check(Collider other){
         if(other.gameObject.tag != "Player")
             return;
+        Debug.Log("WIN!");
         winEvent?.Invoke();
     }
 }
