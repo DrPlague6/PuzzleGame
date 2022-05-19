@@ -10,7 +10,7 @@ public class WheelTrigger : LevelCondition
     [SerializeField] int stepsCount = 0;
     [SerializeField] GameEvent rotateCheck;
     float targetRotation;
-    int     stepRotaion;
+    int stepRotaion;
     Vector3 newRotation;
     
     void OnCollisionEnter(Collision other) => CheckEnter(other.collider);

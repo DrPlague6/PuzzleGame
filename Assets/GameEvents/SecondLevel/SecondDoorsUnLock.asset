@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d70f3f63c1eff8241abee3675d9e4f4f, type: 3}
-  m_Name: ThirdDoorsLock
+  m_Name: SecondDoorsUnLock
   m_EditorClassIdentifier: 

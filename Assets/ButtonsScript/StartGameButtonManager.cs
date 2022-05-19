@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGameButton : MonoBehaviour
+public class StartGameButtonManager : MonoBehaviour
 {
-    public void doStartGame(){
-        Application.Quit();
+    public void StartGame(){
         SceneManager.LoadScene("Assets/Scenes/MainScene.unity",LoadSceneMode.Single);
     }
 }
