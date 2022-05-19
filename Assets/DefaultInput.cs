@@ -22,15 +22,15 @@ public class @DefaultInput : IInputActionCollection, IDisposable
                     ""name"": ""Movement"",
                     ""type"": ""PassThrough"",
                     ""id"": ""fe849818-d0eb-44e5-ba29-1f63a8cfe5e8"",
-                    ""expectedControlType"": ""Vector3"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
                     ""name"": ""Turn"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""b3f51044-6bd0-4b8d-9cf6-ab32ce777584"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -94,7 +94,7 @@ public class @DefaultInput : IInputActionCollection, IDisposable
                 {
                     ""name"": ""1D Axis"",
                     ""id"": ""2e36b255-27ed-468e-9f8c-1afe67f68b7f"",
-                    ""path"": ""1DAxis"",
+                    ""path"": ""1DAxis(whichSideWins=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

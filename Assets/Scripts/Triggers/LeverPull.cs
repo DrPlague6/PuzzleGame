@@ -6,7 +6,6 @@ public class LeverPull : LevelCondition
 {
     [SerializeField] Animator leverAnimator;
     [SerializeField] GameEvent leverPullEvent;
-
     private bool isPlayerInRange;
     void OnCollisionEnter(Collision other) => CheckEnter(other.collider);
     void OnCollisionExit(Collision other) => CheckExit(other.collider);
@@ -23,21 +22,18 @@ public class LeverPull : LevelCondition
         isPlayerInRange = false;
     }
     void Update(){
-        if(Input.GetKeyDown(KeyCode.E) && isPlayerInRange)
+        if(PlayerInput.Instance.TriggerAction.triggered  && isPlayerInRange)
             LeverPulled();
     }
     void LeverPulled(){
-        if(!isConditionMet){
+        if(!IsConditionMet){
             isConditionMet = true;
-            Debug.Log("Pulled");
             leverPullEvent?.Invoke();
             leverAnimator.SetFloat("Direction",1.0f);
             leverAnimator.Play("MoveDown");
             return;
         }
-        else{
-            leverAnimator.SetFloat("Direction",-1.0f);
-            leverAnimator.Play("MoveUp");
-        }
+        leverAnimator.SetFloat("Direction",-1.0f);
+        leverAnimator.Play("MoveUp");
     }
 }

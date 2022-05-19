@@ -28,4 +28,4 @@ public class PlateTrigger : MonoBehaviour
         plateAniamtion["PlatePushed"].speed = -1f;
         plateAniamtion.Play();    
     }
-}
+    }

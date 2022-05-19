@@ -11,6 +11,6 @@ public class ObstaclePush : MonoBehaviour
             return;
         if(rb == null || rb.isKinematic)
             return;
-        rb.velocity = other.moveDirection * playerScript.playerProperties.Strength;
+        rb.velocity = other.moveDirection * playerScript.PlayerProperties.Strength;
     }
 }
